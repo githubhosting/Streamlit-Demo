@@ -11,11 +11,12 @@ authenticator = stauth.Authenticate(
     config['cookie']['name'],
     config['cookie']['key'],
     config['cookie']['expiry_days'],
+
 )
 
 
 def main():
-    name, authentication_status, username = authenticator.login('Login with USN and DOB', 'main')
+    name, authentication_status, username, password = authenticator.login('Login with USN and DOB', 'main')
     if authentication_status:
         authenticator.logout('Logout', 'main')
         st.title(f'Welcome {name}')
