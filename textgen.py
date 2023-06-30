@@ -10,13 +10,13 @@ st.set_page_config(page_title="My GPT - by Shravan", page_icon="🤖")
 st.title("AI Text Gen 🤖")
 st.subheader("Write the Prompt")
 
-prompt = st.text_area("Prompt", "Enter the Text Here")
+prompt = st.text_area("Prompt", "Enter the Prompt Here")
 
 check = st.button("Ask the AI")
 if check:
     completion = anthropic.completions.create(
         model="claude-1",
-        max_tokens_to_sample=300,
+        max_tokens_to_sample=500,
         prompt=f"{HUMAN_PROMPT} {prompt} {AI_PROMPT}",
     )
     out = completion.completion
